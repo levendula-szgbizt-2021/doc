@@ -1,0 +1,16 @@
+skinparam style strictuml
+skinparam shadowing false
+skinparam sequence {
+	ArrowColor black
+
+	LifeLineBorderColor black
+	LifeLineBackgroundColor white
+
+	ParticipantBorderColor black
+	ParticipantBackgroundColor white
+
+}
+skinparam NoteBorderColor black
+skinparam NoteBackgroundColor white
+
+autonumber "0:"

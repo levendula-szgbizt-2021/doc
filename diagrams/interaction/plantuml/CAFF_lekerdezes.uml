@@ -1,0 +1,23 @@
+@startuml
+mainframe **interaction** CAFF lekérdezés
+!include style.iuml
+
+participant "CAFF kezelő"
+participant "AA komponens"
+
+note over "CAFF kezelő","AA komponens": minden művelet naplózva
+
+[-> "CAFF kezelő" ++: lekérdezés(fhAdat, caffID)
+
+"CAFF kezelő" -> "AA komponens" ++: ellenőrzés(fhAdat)
+return success
+
+alt success
+	"CAFF kezelő" -> "CAFF kezelő" ++: betöltés(caffId)
+	return caff
+	[<-- "CAFF kezelő": caff adatok
+else
+	[<-- "CAFF kezelő": autentikáció hiba
+end
+
+@enduml

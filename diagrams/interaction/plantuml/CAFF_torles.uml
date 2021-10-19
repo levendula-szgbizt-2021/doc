@@ -1,0 +1,18 @@
+@startuml
+mainframe **interaction** CAFF törlés
+!include style.iuml
+
+[-> "CAFF kezelő" ++: törlés(fhAdat, caffID)
+
+"CAFF kezelő" -> "AA komponens" ++: ellenőrzés(fhAdat)
+return success
+
+alt success
+	"CAFF kezelő" -> "CAFF kezelő" ++: törlés(caffId)
+	return ok
+	[<-- "CAFF kezelő": ok
+else
+	[<-- "CAFF kezelő": autentikáció hiba
+end
+
+@enduml
